@@ -25,7 +25,7 @@ Things you may want to cover:
 
 
 
-# Belle foret
+# Belle Foret
 
 
 
@@ -35,7 +35,8 @@ Things you may want to cover:
 
 
 ## 背景:
-   新しくフランス料理店を北海道の森の中に開業され、HPを作成しブログなどの宣伝やお客様の感想やご意見を頂けるようにするため開設しようと思いました。
+   新しくフランス料理店を北海道の森の中に開業され、HPを作成しブログなどでも宣伝やお客様の感想やご意見を頂けるようにするため開設しようと思いました。
+   また、海外のお客様も多い地域なので英語での表記も出来るようにしました。
    ※Belleforetとはフランス語で美しい森という意味です。
 
 
@@ -68,7 +69,7 @@ Things you may want to cover:
 
 
 ## WBS:
-   
+   https://docs.google.com/spreadsheets/d/14cECebIibo40AihiTIH-2UbAZ6RU1Bpu_8f1pKbRjHY/edit?usp=sharing
 
 
 
