@@ -1,0 +1,33 @@
+// Place all the styles related to the customer::homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+@top_image loop {
+  0% {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+
+@top_image loop2 {
+  0% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-200%);
+  }
+}
+
+
+.loop img:first {
+  animation: loop 60s -30s linear infinite;
+}
+
+
+.loop img:last {
+  animation: loop2 60s linear infinite;
+}

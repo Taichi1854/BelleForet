@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+
+
+        <h2>TOPIC詳細</h2>
+        <div class="row">
+            <div id="topics">
+                <% @topics.each do |topic| %>
+                    <%= attachment_image_tag topic, :image, format: 'jpeg', size: "150x150",  fallback: "no_image.jpg"%>
+                    <p><%= topic.title %></p>
+                    <%= link_to "Edit", edit_admin_topic_path(@topic.id) %>
+			        <%= link_to "Destroy", topic_path(@topic.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %>
+                <% end %>
+            </div>
+        </div>
+
+
+    </div>
+</div>

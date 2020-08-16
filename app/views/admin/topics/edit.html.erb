@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+
+
+        <h2>TOPIC編集</h2>
+
+        <%= form_for @topic, method: :patch do |f| %>
+
+            <div class="field">
+                <%= f.label :Title %>
+                <%= f.text_field :title %>
+            </div>
+
+
+            <div class="field">
+                <%= f.label :Text %>
+                <%= f.text_area :body %>
+            </div>
+
+
+            <div class="field">
+                <%= f.label :image %>
+		        <%= f.attachment_field :image %>
+            </div>
+
+
+            <div class="actions">
+                <%= f.submit "Update TOPIC" %>
+            </div>
+
+
+            <%= link_to "Show", admin_topic_path(@topic.id) %> |
+            <%= link_to "Back", admin_topics_path %>
+
+        <% end %>
+
+
+    </div>
+</div>
