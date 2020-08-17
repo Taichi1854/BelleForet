@@ -86,6 +86,9 @@ gem 'jquery-rails'
 
 #環境変数管理
 gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
 
 #デバッグ処理
 gem 'pry-byebug'
