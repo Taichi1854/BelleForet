@@ -8,13 +8,13 @@
 
             <div class="field">
                 <%= f.label :Title %>
-                <%= f.text_field :title %>
+                <%= f.text_field :title, autofocus: true, autocomplete: "title" %>
             </div>
 
 
             <div class="field">
                 <%= f.label :Text %>
-                <%= f.text_area :body %>
+                <%= f.text_area :body, autofocus: true, autocomplete: "body" %>
             </div>
 
 
