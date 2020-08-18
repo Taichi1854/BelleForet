@@ -6,23 +6,48 @@
         <title>BelleForet</title>
         <%= csrf_meta_tags %>
         <%= csp_meta_tag %>
-
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet">
     </head>
 
 
     <body>
 
-        <div class="logo">
-            <% if current_admin %>
-                <%=link_to 'Belle Foret', admin_top_path %>
-            <% elsif current_customer %>
-                <%=link_to 'Belle Foret', root_path %>
-            <% else %>
-                <%=link_to 'Belle Foret', root_path %>
-            <% end %>
-        </div>
+        <nav class="navbar navbar-fixed-top">
+
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="glyphicon glyphicon-th-list" style="font-size:35px;"></span>
+            </button>
+
+
+            <div class="logo">
+                <% if current_admin %>
+                    <%=link_to 'Belle Foret', admin_top_path %>
+                <% elsif current_customer %>
+                    <%=link_to 'Belle Foret', root_path %>
+                <% else %>
+                    <%=link_to 'Belle Foret', root_path %>
+                <% end %>
+            </div>
+
+
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right text-color">
+                    <% if customer_signed_in? %>
+                        <li>ようこそ、<%= current_customer.name %>さん！</li>
+                        <li><%= link_to ' マイページ', customer_path(current_customer) %></li>
+                        <li><%= link_to ' ログアウト', destroy_customer_session_path, method: :delete %></li>
+                    <% elsif admin_signed_in? %>
+                        <li><%= link_to ' ログアウト', destroy_admin_session_path, method: :delete %></li>
+                    <% else %>
+                        <li><%= link_to ' 新規登録', new_customer_registration_path %></li>
+                        <li><%= link_to ' ログイン', new_customer_session_path %></li>
+                    <% end %>
+                </ul>
+            </div>
+
+        </nav>
 
 
         <div class="container" style="margin-top: 105px">

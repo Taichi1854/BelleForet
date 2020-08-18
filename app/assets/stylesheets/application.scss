@@ -14,5 +14,31 @@
  *= require_self
  */
 
+
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+
+
+
+.paginate {
+    border: none;
+    color: #FFF;
+    background: #000;
+}
+
+
+.paginate:hover {
+    text-shadow: 0 0 10px red;
+}
+
+
+html {
+  scroll-behavior:smooth;
+}
+
+
+
+
+
+
