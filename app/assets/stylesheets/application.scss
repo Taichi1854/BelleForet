@@ -1,0 +1,164 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'bootstrap-datetimepicker';
+
+
+
+
+
+.paginate {
+    border: none;
+    color: #FFF;
+    background: #000;
+}
+
+
+.paginate:hover {
+    text-shadow: 0 0 10px red;
+}
+
+
+html {
+  scroll-behavior:smooth;
+}
+
+
+body {
+	background-color: #111111;
+}
+
+
+.text-color {
+	color: white;
+}
+
+
+.text-color a {
+	color: #FFFFEE;
+}
+
+
+.logo {
+    font-size: 60px;
+    font-family: cursive;
+    margin: 20px;
+}
+
+
+.logo a {
+	color: white;
+}
+
+
+.logo a:hover {
+	color: #FFF;
+	background-color: #000;
+}
+
+
+.nav {
+    margin: 40px;
+}
+
+
+.title {
+    text-align: center;
+    font-size: 30px;
+    margin: 50px;
+
+}
+
+
+.topic {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+
+.more {
+    text-align: center;
+    font-size: 30px;
+    margin: 50px;
+}
+
+
+
+
+
+@media (max-width: 1200px) {
+
+    .navbar-header {
+        float: none;
+    }
+
+
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+
+
+    .navbar-toggle {
+        display: block;
+    }
+
+
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+
+
+    .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+    }
+
+
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+
+
+    .navbar-nav {
+        float: none!important;
+        margin-top: 7.5px;
+        margin: 20px;
+    }
+
+
+    .navbar-nav>li {
+        float: none;
+    }
+
+
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+
+    .collapse.in{
+        display:block !important;
+    }
+
+}
+

@@ -1,15 +1,90 @@
 <!DOCTYPE html>
+
 <html>
-  <head>
-    <title>BelleForet</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <head>
+        <title>BelleForet</title>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet">
+    </head>
 
-  <body>
-    <%= yield %>
-  </body>
+
+    <body>
+
+        <nav class="navbar fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="glyphicon glyphicon-th-list" style="font-size:35px;"></span>
+                    </button>
+
+
+                    <div class="logo">
+                        <% if current_admin %>
+                            <%=link_to 'Belle Foret', admin_top_path %>
+                        <% elsif current_customer %>
+                            <%=link_to 'Belle Foret', root_path %>
+                        <% else %>
+                            <%=link_to 'Belle Foret', root_path %>
+                        <% end %>
+                    </div>
+
+                </div>
+
+
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right text-color">
+                        <% if customer_signed_in? %>
+                            <li><%= current_customer.name %>さん</li>
+                            <li><%= link_to ' MY PAGE', customer_path(current_customer) %></li>
+                            <li><%= link_to ' ABOUT', about_path %></li>
+                            <li><%= link_to ' TOPICS', topics_path %></li>
+                            <li><%= link_to ' PARTY', party_path %></li>
+                            <li><%= link_to ' WEDDING', wedding_path %></li>
+                            <li><%= link_to ' RESERVATION', new_reservation_path %></li>
+                            <li><%= link_to ' LOG OUT', destroy_customer_session_path, method: :delete %></li>
+                        <% elsif admin_signed_in? %>
+                            <li><%= link_to ' TOPIC投稿・一覧', admin_topics_path %></li>
+                            <li><%= link_to ' 予約状況', admin_reservations_path %></li>
+                            <li><%= link_to ' お問い合わせ一覧', admin_inquiries_path %></li>
+                            <li><%= link_to ' ログアウト', destroy_admin_session_path, method: :delete %></li>
+                        <% else %>
+                            <li><%= link_to ' ABOUT', about_path %></li>
+                            <li><%= link_to ' TOPICS', topics_path %></li>
+                            <li><%= link_to ' PARTY', party_path %></li>
+                            <li><%= link_to ' WEDDING', wedding_path %></li>
+                            <li><%= link_to ' 新規登録', new_customer_registration_path %></li>
+                            <li><%= link_to ' ログイン', new_customer_session_path %></li>
+                        <% end %>
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <div class="container" style="margin-top: 110px">
+
+                <% if flash[:notice] %>
+                    <div class="alert alert-success"><%= flash[:notice] %></div>
+                <% elsif flash[:alert] %>
+                    <div class="alert alert-danger"><%= flash[:alert] %></div>
+                <% end %>
+
+
+                <%= yield %>
+
+            </div>
+
+
+        </nav>
+
+    </body>
+
 </html>

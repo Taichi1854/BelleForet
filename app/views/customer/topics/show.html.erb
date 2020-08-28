@@ -1,0 +1,91 @@
+<div class="container">
+    <div class="row">
+        <div class="text-color">
+
+
+            <div class="row">
+                <h2>TOPICS</h2>
+                <div class="row">
+                    <%= link_to topics_path(@topics) do %>
+                        <%= attachment_image_tag @topics, :image, format: 'jpeg', size: "150x150",  fallback: "no_image.jpg"%><br>
+                        <p><%= @topics.title %></p>
+                        <p><%= @topics.body %></p>
+                    <% end %>
+                </div>
+            </div>
+
+
+            <div>
+                <% if customer_signed_in? %>
+                    <% if @topics.favorited_by?(current_customer) %>
+                        <%= link_to topic_favorites_path(@topics), method: :delete do %>
+                            <div class="glyphicon glyphicon-heart" aria-hidden="true" >
+                                <%= @topics.favorites.count %>
+                            </div>
+                        <% end %>
+                    <% else %>
+                        <%= link_to topic_favorites_path(@topics), method: :post do %>
+                            <div class="glyphicon glyphicon-heart" aria-hidden="true" >
+                                <%= @topics.favorites.count %>
+                            </div>
+                        <% end %>
+                    <% end %>
+                <% end %>
+            </div>
+
+
+            <table class="table table-hover table-inverse">
+
+                <table>
+                    <% @comments.each do |comment| %>
+                        <tr>
+                            <td>
+                                <%= comment.customer.name %>
+                            </td>
+                            <td>
+                                <%= comment.comment %>
+                            </td>
+                            <td>
+                                <% if customer_signed_in? && comment.customer == current_customer %>
+                                    <%= link_to "Destroy", topic_comment_path(comment), method: :delete, class: "btn btn-danger" %>
+                                <% end %>
+                            </td>
+                        </tr>
+                    <% end %>
+                </table>
+
+
+<% if customer_signed_in? %>
+                <%= form_for [@topics, @comment] do |f| %>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+                        </div>
+        　              <%= f.submit "送信" %>
+                    </div>
+                <% end %>
+<% end %>
+
+            </table>
+
+
+            <div class="row">
+
+                <% if @topics.previous.present? %>
+                    <%= link_to "PREV", topic_path(@topics.previous), class: "btn_arrow_back"%>
+                <% end %>
+
+
+                <%= link_to "LIST", topics_path %>
+
+
+                <% if @topics.next.present? %>
+                    <%= link_to "NEXT",topic_path(@topics.next), class: "btn_arrow" %>
+                <% end %>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>

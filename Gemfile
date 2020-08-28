@@ -40,6 +40,11 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails'
+  #Capistrano
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -86,7 +91,14 @@ gem 'jquery-rails'
 
 #環境変数管理
 gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
 
 #デバッグ処理
 gem 'pry-byebug'
+
+gem 'bootstrap3-datetimepicker-rails'
+
+gem 'momentjs-rails', '>= 2.9.0'
 
