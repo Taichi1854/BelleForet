@@ -5,12 +5,13 @@ class Admin::TopicsController < ApplicationController
 
 
   def new
+    @topic = Topic.new
   end
 
 
   def index
-    @topic = Topic.new
     @topics = Topic.all.order(created_at: :desc)
+    @topic = Topic.new
   end
 
 
@@ -37,12 +38,13 @@ class Admin::TopicsController < ApplicationController
 
   def create
     @topic = Topic.new(topic_params)
-    if @topic.save
+    @topic.admin_id = current_admin.id
+    @topics = Topic.all
+    if @topic.save!
       flash[:notice] = "TOPICが保存されました。"
       redirect_to admin_topic_path(@topic)
     else
       flash[:alert] = "再度入力してください。"
-      @topics = Topic.all
       render 'index'
     end
   end
@@ -61,7 +63,7 @@ class Admin::TopicsController < ApplicationController
   private
 
     def topic_params
-      params.require(:topic).permit(:title, :body, :image)
+      params.require(:topic).permit(:title, :body, :image, :admin_id)
     end
 
 

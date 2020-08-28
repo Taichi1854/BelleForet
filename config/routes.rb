@@ -2,16 +2,16 @@ Rails.application.routes.draw do
 
 
   devise_for :customers, controllers: {
-    sessions: "customer/devise/sessions",
-    passwords: "customer/devise/passwords",
-    registrations: "customer/devise/registrations",
+    sessions: "customer/devises/sessions",
+    passwords: "customer/devises/passwords",
+    registrations: "customer/devises/registrations",
   }
 
 
   devise_for :admins, controllers: {
-    sessions: "admin/devise/sessions",
-    passwords: "admin/devise/passwords",
-    registrations: "admin/devise/registrations",
+    sessions: "admin/devises/sessions",
+    passwords: "admin/devises/passwords",
+    registrations: "admin/devises/registrations",
   }
 
 
@@ -21,16 +21,17 @@ Rails.application.routes.draw do
   get 'homes/about' => 'customer/homes#about', as: 'about'
   get 'homes/party' => 'customer/homes#party', as: 'party'
   get 'homes/wedding' => 'customer/homes#wedding', as: 'wedding'
-  post 'inquiries/confirm' => 'customer/inquiries/confirm', as: 'inquiries_confirm'
-  get 'inquiries/complete' => 'customer/inquiries/complete', as: 'inquiries_complete'
-  post 'reservations/confirm' => 'customer/reservations/confirm', as: 'reservations_confirm'
-  get 'reservations/complete' => 'customer/reservations/complete', as: 'reservations_complete'
+  get 'inquiries/complete' => 'customer/inquiries#complete', as: 'inquiries_complete'
+  post 'reservations/confirm' => 'customer/reservations#confirm', as: 'reservations_confirm'
+  get 'reservations/complete' => 'customer/reservations#complete', as: 'reservations_complete'
 
 
   get 'admins/home/top' => 'admin/homes#top', as: 'admin_top'
 
 
   scope module: :customer do
+    resources :customers, only: [:show, :edit, :update, :destroy]
+    resources :reservations, only: [:new, :index, :create, :destroy]
     resources :topics, only: [:index, :show] do
   	  resource :favorites, only: [:create, :destroy]
   	  resources :comments, only: [:create, :destroy]
@@ -40,6 +41,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :topics, only: [:new, :index, :show, :edit, :create, :update, :destroy]
+    resources :inquiries, only: [:index, :show]
+    resources :reservations, only: [:index, :show]
   end
 
 

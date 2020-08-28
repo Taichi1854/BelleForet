@@ -14,5 +14,52 @@
 //= require rails-ujs
 //= require turbolinks
 //= require jquery
+//= require moment
+//= require bootstrap-datetimepicker
 //= require bootstrap-sprockets
 //= require_tree .
+
+
+
+
+
+//customer_top
+$(function() {
+    $('.top_image').slick({
+        dots: true,
+        autoplay: true,
+        slidesToShow: 2,
+        centerMode: true,
+        arrows: false,
+        autoplaySpeed: 0, //待ち時間を０に
+        speed: 12000, // スピードをゆっくりに
+        swipe: false,
+        cssEase: 'linear',
+        // 以下、操作後に止まってしまう仕様の対策
+        pauseOnFocus: false,
+        pauseOnHover: false,
+        pauseOnDotsHover: false,
+        responsive: true,
+    });
+});
+
+
+
+
+
+//customer_reservation
+$(function () {
+        $('#datetimepicker6').datetimepicker();
+ });
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,3 +3,98 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+
+
+.about_img {
+    text-align: center;
+}
+
+
+.about {
+    padding:50px;
+
+}
+
+
+.party_image {
+    background-image: image-url('party.jpg');
+    padding: 170px;
+    margin: 30px;
+    width: auto;
+    background-size: cover;
+}
+
+
+.style_party {
+    text-align: center;
+    text-weight: 900;
+    padding: 20px;
+    background-color: rgba(255,255,255,0.5);
+    color: black;
+}
+
+
+.wedding_image {
+    background-image: image-url('wedding1.jpg');
+    padding: 300px;
+    margin: 30px;
+    width: auto;
+    background-size: cover;
+}
+
+
+.style_wedding {
+    text-align: center;
+    text-weight: 900;
+    padding: 20px;
+    background-color: rgba(255,255,255,0.5);
+    color: black;
+}
+
+
+.line_jp {
+    line-height: 30px;
+    padding:30px;
+}
+
+
+.line_fc {
+    line-height: 30px;
+    padding:30px;
+}
+
+
+.top_image {
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+}
+
+
+.top_image img {
+    width: auto;
+    height: 600px;
+}
+
+
+.top_image img.slick {
+    display: block;
+    height: 300px;
+}
+
+
+.topics_prevention {
+    text-align: center;
+    font-size: 15px;
+    margin: 80px;
+    padding:40px;
+}
+
+
+.prevention {
+    border: solid;
+    text-align: center;
+    font-size: 15px;
+    margin: 80px;
+    padding:40px;
+}

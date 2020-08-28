@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="row">
+
+
+
+            <%= form_for(@reservation, url:reservations_path) do |f| %>
+                <div class="container">
+
+                    <div class=font>
+                        <div class="label label-danger">必須</div> 苗字
+                    </div>
+                    <div class="space"><%= f.text_field :first_name,placeholder: "苗字"%></div>
+
+
+                    <div class=font>
+                        <div class="label label-danger">必須</div> 名前
+                    </div>
+                    <div class="space"><%= f.text_field :last_name, class: "form-control edit-form", placeholder: "名前" %></div>
+
+
+                    <div class=font>
+                        <div class="label label-danger">必須</div> 苗字(カナ)
+                    </div>
+                    <div class="space"><%= f.text_field :first_name_kana, class: "form-control", placeholder: "苗字(カナ)"%></div>
+
+
+                    <div class=font>
+                        <div class="label label-danger">必須</div> 名前(カナ)
+                    </div>
+                    <div class="space"><%= f.text_field :last_name_kana, class: "form-control", placeholder: "名前(カナ)" %></div>
+
+
+                    <div class=font>
+                        <div class="label label-danger">必須</div> 電話番号 (ハイフンなし)
+                    </div>
+                    <div class="space"><%= f.text_field :tel, class: "form-control", placeholder: "電話番号" %></div>
+
+
+                    <div class=font>
+                        <div class="label label-danger">必須</div> メールアドレス
+                    </div>
+                    <div class="space"><%= f.text_field :email, class: "form-control", placeholder: "メールアドレス" %></div>
+
+
+                    <div class=font>
+                        <div class="label label-danger">必須</div> 人数
+                    </div>
+                    <div class="space"><%= f.text_field :people, class: "form-control", placeholder: "人数" %></div>
+
+
+                    <div class=font>備考</div>
+                    <div class="space"><%= f.text_area :body, class: "form-control", placeholder: "備考" %></div>
+
+
+                    <div class=font>
+                        <div class="label label-danger">必須</div> 予約日時 (カレンダーから指定)
+                    </div>
+                    <div class='input-group date space' id='datetimepicker6'>
+                        <%= f.text_field :date, class: "form-control", placeholder: "予約日時" %>
+                            <div class="input-group-addon">
+                                <div class="glyphicon glyphicon-calendar"></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="space text-color">
+                        <%= f.submit "この日程で予約を確認する", class: "btn label-default btn-wide" %>
+                    </div>
+
+
+                </div>
+            <% end %>
+
+
+
+    </div>
+</div>

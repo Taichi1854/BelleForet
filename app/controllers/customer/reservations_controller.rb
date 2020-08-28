@@ -5,14 +5,32 @@ class Customer::ReservationsController < ApplicationController
 
 
   def new
+    @reservation = Reservation.new
   end
 
 
-  def create
+  def index
   end
 
 
   def confirm
+    @reservation = Reservation.new
+  end
+
+
+  def create
+    @reservation = current_customer.reservations.create(reservation_params)
+    if @reservation.save
+      redirect_to reservations_complete_path
+      flash[:notice] = "予約が完了しました。"
+    else
+      flash[:alert] = "再度入力してください"
+      render :new
+    end
+  end
+
+
+  def complete
   end
 
 

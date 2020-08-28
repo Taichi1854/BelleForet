@@ -98,3 +98,7 @@ end
 #デバッグ処理
 gem 'pry-byebug'
 
+gem 'bootstrap3-datetimepicker-rails'
+
+gem 'momentjs-rails', '>= 2.9.0'
+

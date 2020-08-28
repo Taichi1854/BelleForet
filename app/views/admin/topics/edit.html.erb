@@ -1,39 +1,40 @@
 <div class="container">
     <div class="row">
+        <div class="text-color">
+
+            <h2>TOPIC編集</h2>
+
+            <%= form_for(@topic, url: admin_topic_path) do |f| %>
+
+                <div class="field">
+                    <%= f.label :Title %>
+                    <%= f.text_field :title, autofocus: true, autocomplete: "title" %>
+                </div>
 
 
-        <h2>TOPIC編集</h2>
-
-        <%= form_for @topic, method: :patch do |f| %>
-
-            <div class="field">
-                <%= f.label :Title %>
-                <%= f.text_field :title, autofocus: true, autocomplete: "title" %>
-            </div>
+                <div class="field">
+                    <%= f.label :Text %>
+                    <%= f.text_area :body, autofocus: true, autocomplete: "body" %>
+                </div>
 
 
-            <div class="field">
-                <%= f.label :Text %>
-                <%= f.text_area :body, autofocus: true, autocomplete: "body" %>
-            </div>
+                <div class="field">
+                    <%= f.label :image %>
+		            <%= f.attachment_field :image %>
+                </div>
 
 
-            <div class="field">
-                <%= f.label :image %>
-		        <%= f.attachment_field :image %>
-            </div>
+                <div class="actions">
+                    <%= f.submit "Update TOPIC" %>
+                </div>
 
 
-            <div class="actions">
-                <%= f.submit "Update TOPIC" %>
-            </div>
+                <%= link_to "Show", admin_topic_path(@topic.id) %> |
+                <%= link_to "Back", admin_topics_path %>
+
+            <% end %>
 
 
-            <%= link_to "Show", admin_topic_path(@topic.id) %> |
-            <%= link_to "Back", admin_topics_path %>
-
-        <% end %>
-
-
+        </div>
     </div>
 </div>

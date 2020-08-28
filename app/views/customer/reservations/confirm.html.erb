@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="row">
+        <div class="space text-color">
+
+            <h2>予約情報確認</h2>
+
+            <div class="row">
+	            <%= form_for  do |f| %>
+				    <%= f.hidden_field :first_name %>
+				    <%= f.hidden_field :last_name %>
+				    <%= f.hidden_field :first_name_kana %>
+				    <%= f.hidden_field :last_name_kana %>
+				    <%= f.hidden_field :tel %>
+				    <%= f.hidden_field :email %>
+				    <%= f.hidden_field :people %>
+				    <%= f.hidden_field :body %>
+				    <%= f.hidden_field :date %>
+		        <% end %>
+	        <div>
+
+
+            <div class="row">
+                <div class="space text-color">
+                    <%= f.submit "この日程で予約を確認する", class: "btn label-default btn-wide" %>
+                </div>
+            </div>
+
+
+    </div>
+</div>
