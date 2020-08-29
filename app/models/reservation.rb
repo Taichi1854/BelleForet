@@ -2,6 +2,7 @@ class Reservation < ApplicationRecord
 
 
   belongs_to :customer
+  belongs_to :admin
 
 
   validates :first_name, presence: true

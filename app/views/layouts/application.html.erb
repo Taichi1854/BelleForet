@@ -52,8 +52,6 @@
                             <li><%= link_to ' LOG OUT', destroy_customer_session_path, method: :delete %></li>
                         <% elsif admin_signed_in? %>
                             <li><%= link_to ' TOPIC投稿・一覧', admin_topics_path %></li>
-                            <li><%= link_to ' 予約状況', admin_reservations_path %></li>
-                            <li><%= link_to ' お問い合わせ一覧', admin_inquiries_path %></li>
                             <li><%= link_to ' ログアウト', destroy_admin_session_path, method: :delete %></li>
                         <% else %>
                             <li><%= link_to ' ABOUT', about_path %></li>

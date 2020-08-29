@@ -1,0 +1,2 @@
+module Customer::InquiriesHelper
+end

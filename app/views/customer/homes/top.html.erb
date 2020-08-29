@@ -29,14 +29,14 @@
 
 
             <div class="row topics_prevention">
-                <%= link_to "新型コロナウイルス等の感染予防対策について", topics_path, class:"prevention" %>
+                <%= link_to "新型コロナウイルス等の感染予防対策について", topic_path(@topic.id), class:"prevention" %>
             </div>
 
 
             <div class="title">TOPICS</div>
                 <div class="row">
                     <div id="topics">
-                        <div class="row topic">
+                        <div class="row top_topic">
                             <% @topics.first(6).each do |topic| %>
 
                                 <%= link_to topic_path(topic.id) do %>
