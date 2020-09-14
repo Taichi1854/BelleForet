@@ -29,7 +29,9 @@
 
 
             <div class="row topics_prevention">
-                <%= link_to "新型コロナウイルス等の感染予防対策について", topic_path(@topic.id), class:"prevention" %>
+                <% if @topic.present? %>
+                    <%= link_to "新型コロナウイルス等の感染予防対策について", topic_path(@topic.id), class:"prevention" %>
+                <% end %>
             </div>
 
 
