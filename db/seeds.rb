@@ -7,8 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Admin.create! (
-    email: "sherlock5128@gmail.com",
-    password: "password",
-    admin: true
+Admin.create!(
+	email: "sherlock5128@gmail.com",
+    password: "password"
 )
